@@ -7,9 +7,10 @@ var ctrlUsers = require('..controllers/users');
 /* Locations Pages */
 router.get('/', ctrlLocations.home);
 router.get('/location', ctrlLocations.locationInfo);
-router.get('/location/review/new', ctrlLocations.addReview);
+router.get('/location/reviews', ctrlLocations.reviews)
+router.get('/location/reviews/new', ctrlLocations.addReview);
 router.get('/location/directory', ctrlLocations.directory);
-router.get('/location/getListed', ctrlLocations.newListing);
+router.get('/location/getListed', ctrlLocations.getListedRequest);
 
 
 /* Others Pages */
