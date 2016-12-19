@@ -6,7 +6,6 @@ html
     link(rel='stylesheet', href='/bootstrap/css/superhero.bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-
     .navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
@@ -20,16 +19,21 @@ html
         #navbar-main.navbar-collapse.collapse
           ul.nav.navbar-nav
             li
-              a(href='/users/login') Login
-              a(href='/users/signup') Signup
-              a(href='/blog/') Blog
-              a(href='/location/directory') Directory
-              a(href='/about/') About
-              a(href='/contact/') Contact
-              a(href='/faq/') FAQ
+              ul(href='/users/login') Login
+              ul(href='/users/signup') Signup
+              ul(href='/blog/') Blog
+              ul(href='/location/directory') Directory
+              ul(href='/about/') About
+              ul(href='/contact/') Contact
+              ul(href='/faq/') FAQ
 
+    .container
+      block content
 
-    block content
+      footer
+        .row
+          .col-xs-12
+            small &copy; Melbit 2016
 
-    script(src='/javascripts/jquery-3.1.1.js')
-    script(src='/bootstrap/js/bootstrap.min.js')
+      script(src='/javascripts/jquery-3.1.1.js')
+      script(src='/bootstrap/js/bootstrap.min.js')
