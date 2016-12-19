@@ -20,7 +20,7 @@ module.exports.addReview = function(req, res) {
 
 /* GET directory page */
 module.exports.directory = function(req, res) {
-  res.render('index', { title: 'View All Locations' });
+  res.render('directory', { title: 'View All Locations' });
 };
 
 /* GET get listed page */
