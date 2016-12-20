@@ -1,12 +1,12 @@
 extends layout
 
 block content
-
-  .row
+  //- Header for holding search bar and dropdowns for location and otherwise.
+  .row.list-group
     .col-xs-12.col-sm-12.col-md-12.col-lg-12
-      .row.list-group
-        .col-xs-12.list-group-item.btn-group
-         input.form.lg(type="text", placeholder="Search")
+      .row
+        .col-xs-12.list-group-item.input-group
+         input.form-control(type="text", placeholder="Search")
 
       .row.list-group
         .col-xs-6.list-group-item

@@ -3,12 +3,12 @@
 
 /* GET about page */
 module.exports.about = function(req, res) {
-  res.render('index', { title: 'About' });
+  res.render('about', { title: 'About' });
 };
 
 /* GET contact page */
 module.exports.contact = function(req, res) {
-  res.render('index', { title: 'Contact' });
+  res.render('contact', { title: 'Contact' });
 };
 
 /* GET FAQ page */
