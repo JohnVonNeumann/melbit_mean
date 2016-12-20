@@ -1,11 +1,32 @@
 extends layout
 
 block content
-  #banner.page-header
-    .row
-      .col-lg-12.col-xs-12.col-sm-12.col-md-12
-        h1
-          small Use Bitcoin at locations near you!
+
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      .row.list-group
+        .col-xs-12.list-group-item.btn-group
+         input.form.lg(type="text", placeholder="Search")
+
+      .row.list-group
+        .col-xs-6.list-group-item
+          button.btn.btn-primary(type="button") Places
+          button(class="btn btn-primary dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            span.caret
+            span.sr-only Toggle Dropdown
+          ul.dropdown-menu
+            a.li(href='#') Windsor
+            a.li(href='#') Narnia
+            a.li(href='#') Kyoto
+        .col-xs-6.list-group-item
+          button.btn.btn-primary(type="button") Places
+          button(class="btn btn-primary dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            span.caret
+            span.sr-only Toggle Dropdown
+          ul.dropdown-menu
+            a.li(href='#') Windsor
+            a.li(href='#') Narnia
+            a.li(href='#') Kyoto
 
   //- Entry For Jimbos Cafe
   .row

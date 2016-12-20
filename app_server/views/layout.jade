@@ -11,7 +11,6 @@ html
         .navbar-header
           a.navbar-brand(href='/') Melbit
 
-          input(class="form" type="text", placeholder="Search")
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
             span.icon-bar
             span.icon-bar
@@ -19,13 +18,13 @@ html
         #navbar-main.navbar-collapse.collapse
           ul.nav.navbar-nav
             li
-              ul(href='/users/login') Login
-              ul(href='/users/signup') Signup
-              ul(href='/blog/') Blog
-              ul(href='/location/directory') Directory
-              ul(href='/about/') About
-              ul(href='/contact/') Contact
-              ul(href='/faq/') FAQ
+              a.ul(href='/users/login') Login
+              a.ul(href='/users/signup') Signup
+              a.ul(href='/blog/') Blog
+              a.ul(href='/location/directory') Directory
+              a.ul(href='/about/') About
+              a.ul(href='/contact/') Contact
+              a.ul(href='/faq/') FAQ
 
     .container
       block content
