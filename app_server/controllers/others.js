@@ -13,10 +13,10 @@ module.exports.contact = function(req, res) {
 
 /* GET FAQ page */
 module.exports.faq = function(req, res) {
-  res.render('index', { title: 'FAQ' });
+  res.render('faq', { title: 'FAQ' });
 };
 
 /* GET blog page */
 module.exports.blog = function(req, res) {
-  res.render('index', { title: 'Blog' });
+  res.render('blog', { title: 'Blog' });
 };

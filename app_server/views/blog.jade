@@ -1,0 +1,94 @@
+extends layout
+
+block content
+  h1= title
+
+  //- Header for holding search bar and dropdowns. Boilerplate.
+  .row.list-group
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      .row
+        .col-xs-12.list-group-item.input-group
+         input.form-control(type="text", placeholder="Search")
+
+      .row.list-group
+        .col-xs-6.list-group-item
+          button.btn.btn-primary(type="button") Type
+          button(class="btn btn-primary dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            span.caret
+            span.sr-only Toggle Dropdown
+          ul.dropdown-menu
+            a.li(href='#') Windsor
+            a.li(href='#') Narnia
+            a.li(href='#') Kyoto
+        .col-xs-6.list-group-item
+          button.btn.btn-primary(type="button") Date
+          button(class="btn btn-primary dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            span.caret
+            span.sr-only Toggle Dropdown
+          ul.dropdown-menu
+            a.li(href='#') Windsor
+            a.li(href='#') Narnia
+            a.li(href='#') Kyoto
+
+  //- Entry For Blog Post
+  .row
+    .col-xs-12.col-sm-8.col-md-6.col-lg-6
+      .row.list-group
+        .col-xs-12.list-group-item
+          h4
+            a(href="/location") 5 Reasons Why You Should Use Bitcoin
+            small &nbsp;
+          .badge.pull-right.badge-default Louis Willcock
+          | &nbsp;
+          p.description Number 1, why not? Number 2. Because I said so! ...
+          p
+            span.label.label-warning Beginners
+            | &nbsp;
+            span.label.label-warning Bitcoin
+            | &nbsp;
+            span.label.label-warning Non-Technical
+            | &nbsp;
+  //- End of Blog Post Entry
+
+  //- Entry For Blog Post
+  .row
+    .col-xs-12.col-sm-8.col-md-6.col-lg-6
+      .row.list-group
+        .col-xs-12.list-group-item
+          h4
+            a(href="/location") Only Scrubs Use Cash!
+            small &nbsp;
+          .badge.pull-right.badge-default Bax Callan
+          | &nbsp;
+          p.description You use a bank account? WHAT?! LMAO that is so las ...
+          p
+            span.label.label-warning Banks
+            | &nbsp;
+            span.label.label-warning Cash
+            | &nbsp;
+            span.label.label-warning Non-Technical
+            | &nbsp;
+  //- End of Blog Post Entry
+
+  //- Entry For Blog Post
+  .row
+    .col-xs-12.col-sm-8.col-md-6.col-lg-6
+      .row.list-group
+        .col-xs-12.list-group-item
+          h4
+            a(href="/location") Why Melbourne Is The Best
+            small &nbsp;
+          .badge.pull-right.badge-default Thomas Gee
+          | &nbsp;
+          p.description Go to the Footy, sink a few beers, pay with bitcoin ...
+          p
+            span.label.label-warning Melbourne
+            | &nbsp;
+            span.label.label-warning Bitcoin
+            | &nbsp;
+            span.label.label-warning Lifestyle
+            | &nbsp;
+    //- End of Blog Post Entry
+
+    .col-xs-12.col-sm-4
+     p.lead Melbit helps you find places to use and spread your bitcoin.
