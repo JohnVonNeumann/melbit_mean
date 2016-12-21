@@ -10,7 +10,7 @@ module.exports.logout = function(req, res) {
 
 /* GET signup page */
 module.exports.signup = function(req, res) {
-  res.render('index', { title: 'Signup' });
+  res.render('signup', { title: 'Signup' });
 };
 
 /* GET signup confirm page */

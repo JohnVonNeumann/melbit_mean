@@ -1,0 +1,73 @@
+extends layout
+
+block content
+
+  h1= title
+  .list-group
+    .list-group-item
+      .form-group.row
+        label.col-xs-2.col-form-label(for='example-name-input') Name:
+        .col-xs-9.col-xs-offset-1
+          input#example-name-input.form-control(type='text')
+      .form-group.row
+        label.col-xs-2.col-form-label(for='example-email-input') Email:
+        .col-xs-9.col-xs-offset-1
+          input#example-bus-name-input.form-control(type='email')
+      .form-group.row
+        label.col-xs-2.col-form-label(for='example-email-input') Confirm Email:
+        .col-xs-9.col-xs-offset-1
+          input#example-bus-name-input.form-control(type='email')
+      .form-group.row
+        label.col-xs-2.col-form-label(for='example-email-input')  Mobile:
+        .col-xs-9.col-xs-offset-1
+          input#example-email-input.form-control(type='email')
+
+      .form-group.row
+        label.col-xs-10.col-form-label(for='example-bus-type-select') These are optional, you don't have to answer them, but if you do, it will help us out a huge amount! Thank you in advance!
+
+      .form-group.row
+        label.col-xs-10.col-form-label(for='example-bus-type-select') You can scroll down to find the submit signup button!
+
+      fieldset.form-group.row
+        legend.col-form-legend.col-sm-2 How did you hear about us?
+        .col-sm-10
+          .form-check
+            label.form-check-label
+              input#gridRadios1.form-check-input(type='radio', name='gridRadios', value='option1')
+              |             Word of Mouth
+          .form-check
+            label.form-check-label
+              input#gridRadios2.form-check-input(type='radio', name='gridRadios', value='option2')
+              |             Online Search
+          .form-check
+            label.form-check-label
+              input#gridRadios3.form-check-input(type='radio', name='gridRadios', value='option3')
+              |             A Blog or other website
+          .form-check
+            label.form-check-label
+              input#gridRadios3.form-check-input(type='radio', name='gridRadios', value='option3')
+              |             In store advertisement
+
+      fieldset.form-group.row
+        legend.col-form-legend.col-sm-2 How confident do you feel about your knowledge of Bitcoin?
+        .col-sm-10
+          .form-check
+            label.form-check-label
+              input#gridRadios1.form-check-input(type='radio', name='gridRadios', value='option1')
+              |             Word of Mouth
+          .form-check
+            label.form-check-label
+              input#gridRadios2.form-check-input(type='radio', name='gridRadios', value='option2')
+              |             Online Search
+          .form-check
+            label.form-check-label
+              input#gridRadios3.form-check-input(type='radio', name='gridRadios', value='option3')
+              |             A Blog or other website
+          .form-check
+            label.form-check-label
+              input#gridRadios3.form-check-input(type='radio', name='gridRadios', value='option3')
+              |             In store advertisement
+
+      .row.list-group
+        .list-group-item
+          span.button.btn.btn-primary(href="/users/signup", type='submit') Sign Up
