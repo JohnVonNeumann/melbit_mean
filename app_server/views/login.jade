@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1= title
+
+  .row.list-group
+    .list-group-item
+      form.form-inline
+      .form-group
+        label.sr-only(for='exampleInputEmail3') Email address
+        input#exampleInputEmail3.form-control(type='email', placeholder='Enter email')
+      .form-group
+        label.sr-only(for='exampleInputPassword3') Password
+        input#exampleInputPassword3.form-control(type='password', placeholder='Password')
+      .form-check
+        label.form-check-label
+          input.form-check-input(type='checkbox')
+          |  Remember me
+      button.btn.btn-primary(type='submit') Sign in
+
+
+  .row.list-group
+    .list-group-item
+      h4 Not a user already?
+      span.button.btn.btn-primary(type='submit') Sign Up

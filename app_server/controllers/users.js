@@ -1,6 +1,6 @@
 /* GET login page */
 module.exports.login = function(req, res) {
-  res.render('index', { title: 'Login' });
+  res.render('login', { title: 'Login' });
 };
 
 /* GET logout page */
