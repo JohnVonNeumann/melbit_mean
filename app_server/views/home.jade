@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  #map.container-fluid.row
+    .col-xs-12.col-sm-12
+
+      script.
+       var map;
+         function initMap() {
+         // Constructor creates a new map - only center and zoom are required
+         map = new google.maps.Map(document.getElementById('map'), {
+         center: {lat: -37.813517, lng: 144.962808},
+         zoom: 13
+         });
+
+        // These are the listing that will be shown to the user.
+        // After fixing the API itself, these will be moved out to MongoDB to be served to users.
+        var locations = [
+          {title: 'Altius Coffee Brewers', location {lat:-37.819805, lng:144.956597}},
+          {title: 'Design Industries', location {lat:-37.810520, lng:144.946315}},
+          {title: 'Altius Coffee Brewers', location {lat: -37.819805, lng:144.956597}},
+          {title: 'Altius Coffee Brewers', location {lat: -37.819805, lng:144.956597}},
+        ];
+
+         }
+
+      script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&v=3&callback=initMap')

@@ -1,6 +1,6 @@
 /* GET home page */
 module.exports.home = function(req, res) {
-  res.render('index', { title: 'Home' });
+  res.render('home', { title: 'Home' });
 };
 
 /* GET Location Info page */
