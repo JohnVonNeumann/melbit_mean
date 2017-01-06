@@ -1,6 +1,11 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 #map {
-  height: 736px;
-  width: 414px;
+  height: 100%;
+  width: 100%;
   padding: 0px !important;
   margin: 0px !important;
   border: 0px !important;
