@@ -28,7 +28,7 @@ html
 
 
     block content
-      input(id="toggle-drawing", type="button", value="Drawing Tools", class="controls")
+      input(id="toggle-drawing", type="button", value="Draw", class="controls")
       #map
 
         script.
@@ -371,6 +371,11 @@ html
           this.setIcon(defaultIcon);
           });
 
+          // Event listener that toggles drawing tools.
+          document.getElementById('toggle-drawing').addEventListener('click', function() {
+            toggleDrawing(drawingManager);
+          });
+
           bounds.extend(markers[i].position);
           }
           // Extend the boundaries of the map for each marker
@@ -435,6 +440,15 @@ html
           new google.maps.Point(10, 34),
           new google.maps.Size(21,34));
           return markerImage;
+          }
+
+          // This shows and hides (respectively) the drawing options.
+          function toggleDrawing(drawingManager) {
+            if (drawingManager.map) {
+              drawingManager.setMap(null);
+            } else {
+              drawingManager.setMap(map);
+            }
           }
 
         script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&libraries=places,drawing,geometry&v=3&callback=initMap')
