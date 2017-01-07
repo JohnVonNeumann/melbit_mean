@@ -28,7 +28,7 @@ html
 
 
     block content
-
+      input(id="toggle-drawing", type="button", value="Drawing Tools", class="controls")
       #map
 
         script.
@@ -322,6 +322,18 @@ html
 
           var largeInfowindow = new google.maps.InfoWindow();
 
+          // Initalise the drawing manager.
+          var drawingManager = new google.maps.drawing.DrawingManager({
+          drawingMode: google.maps.drawing.OverlayType.POLYGON,
+          drawingControl: true,
+          drawingControlOptions: {
+          position: google.maps.ControlPosition.TOP_LEFT,
+          drawingModes: [
+          google.maps.drawing.OverlayType.POLYGON
+          ]
+          }
+          });
+
           // Styling the markers to create a difference on mouseover and the like.
           var defaultIcon = makeMarkerIcon('F2A900');
           // Creates a "highlight" colour for when user performs a mouseover.
@@ -425,7 +437,7 @@ html
           return markerImage;
           }
 
-        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&libraries=geometry&v=3&callback=initMap')
+        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&libraries=places,drawing,geometry&v=3&callback=initMap')
 
       footer
         .row
