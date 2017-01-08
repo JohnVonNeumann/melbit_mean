@@ -16,12 +16,12 @@ html, body {
          height: 200px;
        }
 
-#toggle-drawing {
+/*#toggle-drawing {
   width: 27%;
   position: relative;
   margin-left: 10px;
-}
-
+}*/
+/*
 .controls {
        margin-top: 10px;
        border: 1px solid transparent;
@@ -31,4 +31,4 @@ html, body {
        height: 32px;
        outline: none;
        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-     }
+     }*/
