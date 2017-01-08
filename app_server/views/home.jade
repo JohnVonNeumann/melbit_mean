@@ -309,7 +309,10 @@ html
           center: {lat: -37.813517, lng: 144.962808},
           zoom: 13,
           styles: styles,
-          mapTypeControl: false
+          mapTypeControl: false,
+          zoomControl: false,
+          scaleControl: false,
+          fullScreenControl: true,
           });
           // These are the real estate listings that will be shown to the user.
           // Normally we'd have these in a database instead.
@@ -324,15 +327,15 @@ html
 
           // Initalise the drawing manager.
           var drawingManager = new google.maps.drawing.DrawingManager({
-          drawingMode: google.maps.drawing.OverlayType.POLYGON,
-          drawingControl: true,
-          drawingControlOptions: {
-          position: google.maps.ControlPosition.TOP_LEFT,
-          drawingModes: [
-          google.maps.drawing.OverlayType.POLYGON
-          ]
-          }
+            drawingMode: google.maps.drawing.OverlayType.MARKER,
+            drawingControl: true,
+            drawingControlOptions: {
+              position: google.maps.ControlPosition.LEFT_CENTER,
+              drawingModes: ['marker', 'rectangle']
+            },
+            markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
           });
+          drawingManager.setMap(map);
 
           // Styling the markers to create a difference on mouseover and the like.
           var defaultIcon = makeMarkerIcon('F2A900');
@@ -369,11 +372,6 @@ html
           });
           marker.addListener('mouseout', function() {
           this.setIcon(defaultIcon);
-          });
-
-          // Event listener that toggles drawing tools.
-          document.getElementById('toggle-drawing').addEventListener('click', function() {
-            toggleDrawing(drawingManager);
           });
 
           bounds.extend(markers[i].position);
@@ -440,15 +438,6 @@ html
           new google.maps.Point(10, 34),
           new google.maps.Size(21,34));
           return markerImage;
-          }
-
-          // This shows and hides (respectively) the drawing options.
-          function toggleDrawing(drawingManager) {
-            if (drawingManager.map) {
-              drawingManager.setMap(null);
-            } else {
-              drawingManager.setMap(map);
-            }
           }
 
         script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&libraries=places,drawing,geometry&v=3&callback=initMap')
