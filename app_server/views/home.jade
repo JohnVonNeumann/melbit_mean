@@ -28,13 +28,18 @@ html
 
 
     block content
-  
+      input(id="pac-input", class="controls", type="text", placeholder="Where to?")
       #map
 
         script.
           var map;
+
           // Create a new blank array for all the listing markers.
           var markers = [];
+
+          // This is a global var used to ensure only one shape is rendered.
+          var polygon = null;
+
           function initMap() {
           // Create a styles array to use with the map.
           var styles = [
@@ -313,6 +318,7 @@ html
           zoomControl: false,
           scaleControl: false,
           fullScreenControl: true,
+          streetViewControl: false,
           });
           // These are the real estate listings that will be shown to the user.
           // Normally we'd have these in a database instead.
@@ -331,11 +337,17 @@ html
             drawingControl: true,
             drawingControlOptions: {
               position: google.maps.ControlPosition.LEFT_CENTER,
-              drawingModes: ['marker', 'rectangle']
+              drawingModes: ['rectangle']
             },
             markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
           });
           drawingManager.setMap(map);
+
+          // Create the search box and link it to the UI element.
+          var input = document.getElementById('pac-input');
+          var searchBox = new google.maps.places.SearchBox(input);
+          map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(input);
+
 
           // Styling the markers to create a difference on mouseover and the like.
           var defaultIcon = makeMarkerIcon('F2A900');
@@ -349,6 +361,17 @@ html
           // Get the position from the location array.
           var position = locations[i].location;
           var title = locations[i].title;
+
+          // Add an event listener so that the polygon is captrued, call the
+          // searchWithinPolygon function. This will show the markers in the polygon,
+          // and hide any outside of it.
+          drawingManager.addListener('overlaycomplete', function(event) {
+            // First check if there is an existing polygon.
+            // If there is, get rid of it and remove the markers.
+            if (polygon) {
+              polygon.setMap(null);
+            }
+            })
 
           // Create a marker per location, and put into markers array.
           var marker = new google.maps.Marker({
