@@ -11,20 +11,27 @@ html
         .navbar-header
           a.navbar-brand(href='/') Melbit
 
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-main')
+            span.sr-only Toggle Navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
         #navbar-main.navbar-collapse.collapse
           ul.nav.navbar-nav
-            li
-              a.ul(href='/users/login') Login
-              a.ul(href='/users/signup') Signup
-              a.ul(href='/blog/') Blog
-              a.ul(href='/location/directory') Directory
-              a.ul(href='/about/') About
-              a.ul(href='/contact/') Contact
-              a.ul(href='/faq/') FAQ
+              li
+                a(href='/users/login') Login
+              li
+                a(href='/users/signup') Signup
+              li
+                a(href='/blog/') Blog
+              li
+                a(href='/location/directory') Directory
+              li
+                a(href='/about/') About
+              li
+                a(href='/contact/') Contact
+              li
+                a(href='/faq/') FAQ
 
 
     block content
@@ -362,17 +369,6 @@ html
           var position = locations[i].location;
           var title = locations[i].title;
 
-          // Add an event listener so that the polygon is captrued, call the
-          // searchWithinPolygon function. This will show the markers in the polygon,
-          // and hide any outside of it.
-          drawingManager.addListener('overlaycomplete', function(event) {
-            // First check if there is an existing polygon.
-            // If there is, get rid of it and remove the markers.
-            if (polygon) {
-              polygon.setMap(null);
-            }
-            })
-
           // Create a marker per location, and put into markers array.
           var marker = new google.maps.Marker({
           map: map,
@@ -396,6 +392,16 @@ html
           marker.addListener('mouseout', function() {
           this.setIcon(defaultIcon);
           });
+
+
+          // Add an event listener so that the polygon is captrued, call the
+          // searchWithinPolygon function. This will show the markers in the polygon,
+          // and hide any outside of it.
+          drawingManager.addListener('overlaycomplete', function(event) {
+            if (polygon) {
+              polygon.setMap(null);
+            }
+            });
 
           bounds.extend(markers[i].position);
           }
@@ -447,6 +453,13 @@ html
           // Open the infowindow on the correct marker.
           infowindow.open(map, marker);
           }
+          }
+
+          // This function will loop through the listings and hide them all.
+          function hideListings() {
+            for (var i = 0; i < markers.length; i++) {
+              markers[i].setMap(null);
+            }
           }
 
           // This function takes in a COLOR, and then creates a new marker

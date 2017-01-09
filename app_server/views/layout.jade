@@ -5,27 +5,33 @@ html
     title= title
     link(rel='stylesheet', href='/bootstrap/css/superhero.bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    .navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          a.navbar-brand(href='/') Melbit
+    body
+      .navbar.navbar-default.navbar-fixed-top
+        .container
+          .navbar-header
+            a.navbar-brand(href='/') Melbit
 
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-        #navbar-main.navbar-collapse.collapse
-          ul.nav.navbar-nav
-            li
-              a.ul(href='/users/login') Login
-              a.ul(href='/users/signup') Signup
-              a.ul(href='/blog/') Blog
-              a.ul(href='/location/directory') Directory
-              a.ul(href='/about/') About
-              a.ul(href='/contact/') Contact
-              a.ul(href='/faq/') FAQ
-
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-main')
+              span.sr-only Toggle Navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #navbar-main.navbar-collapse.collapse
+            ul.nav.navbar-nav
+                li
+                  a(href='/users/login') Login
+                li
+                  a(href='/users/signup') Signup
+                li
+                  a(href='/blog/') Blog
+                li
+                  a(href='/location/directory') Directory
+                li
+                  a(href='/about/') About
+                li
+                  a(href='/contact/') Contact
+                li
+                  a(href='/faq/') FAQ
     .container
       block content
 
