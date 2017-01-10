@@ -327,6 +327,7 @@ html
             fullScreenControl: true,
             streetViewControl: false,
           });
+
           // These are the real estate listings that will be shown to the user.
           // Normally we'd have these in a database instead.
           var locations = [
@@ -358,6 +359,7 @@ html
 
           // Styling the markers to create a difference on mouseover and the like.
           var defaultIcon = makeMarkerIcon('F2A900');
+
           // Creates a "highlight" colour for when user performs a mouseover.
           var highlightedIcon = makeMarkerIcon('c2f200');
 
@@ -371,37 +373,29 @@ html
 
             // Create a marker per location, and put into markers array.
             var marker = new google.maps.Marker({
-            map: map,
-            position: position,
-            title: title,
-            icon: defaultIcon,
-            animation: google.maps.Animation.DROP,
-            id: i
+              map: map,
+              position: position,
+              title: title,
+              icon: defaultIcon,
+              animation: google.maps.Animation.DROP,
+              id: i
             });
 
             // Push the marker to our array of markers.
             markers.push(marker);
+
             // Create an onclick event to open an infowindow at each marker.
             marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
+              populateInfoWindow(this, largeInfowindow);
             });
+
             // Two event listeners - one for mouseover, one for mouseout, to change the colors back and forth.
             marker.addListener('mouseover', function() {
-            this.setIcon(highlightedIcon);
+              this.setIcon(highlightedIcon);
             });
             marker.addListener('mouseout', function() {
-            this.setIcon(defaultIcon);
+              this.setIcon(defaultIcon);
             });
-
-
-            // Add an event listener so that the polygon is captrued, call the
-            // searchWithinPolygon function. This will show the markers in the polygon,
-            // and hide any outside of it.
-            drawingManager.addListener('overlaycomplete', function(event) {
-              if (polygon) {
-                polygon.setMap(null);
-              }
-              });
 
             bounds.extend(markers[i].position);
             }
@@ -409,50 +403,52 @@ html
             map.fitBounds(bounds);
           }
 
+
           // This function populates the infowindow when the marker is clicked. We'll only allow
           // one infowindow which will open at the marker that is clicked, and populate based
           // on that markers position.
           function populateInfoWindow(marker, infowindow) {
-          // Check to make sure the infowindow is not already opened on this marker.
-          if (infowindow.marker != marker) {
-          // Clear the infowindow content to give the streetview time to load.
-          infowindow.setContent('');
-          infowindow.marker = marker;
-          // Make sure the marker property is cleared if the infowindow is closed.
-          infowindow.addListener('closeclick', function() {
-          infowindow.marker = null;
-          });
-          var streetViewService = new google.maps.StreetViewService();
-          var radius = 100;
-          // In case the status is OK, which means the pano was found, compute the
-          // position of the streetview image, then calculate the heading, then get a
-          // panorama from that and set the options
-          function getStreetView(data, status) {
-          if (status == google.maps.StreetViewStatus.OK) {
-          var nearStreetViewLocation = data.location.latLng;
-          var heading = google.maps.geometry.spherical.computeHeading(
-          nearStreetViewLocation, marker.position);
-          infowindow.setContent('<div>' + marker.title + '</div><div id="pano"></div>');
-          var panoramaOptions = {
-          position: nearStreetViewLocation,
-          pov: {
-          heading: heading,
-          pitch: 10
-          }
-          };
-          var panorama = new google.maps.StreetViewPanorama(
-          document.getElementById('pano'), panoramaOptions);
-          } else {
-          infowindow.setContent('<div>' + marker.title + '</div>' +
-          '<div>No Street View Found</div>');
-          }
-          }
-          // Use streetview service to get the closest streetview image within
-          // 50 meters of the markers position
-          streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-          // Open the infowindow on the correct marker.
-          infowindow.open(map, marker);
-          }
+            // Check to make sure the infowindow is not already opened on this marker.
+            if (infowindow.marker != marker) {
+              // Clear the infowindow content to give the streetview time to load.
+              infowindow.setContent('');
+              infowindow.marker = marker;
+              // Make sure the marker property is cleared if the infowindow is closed.
+              infowindow.addListener('closeclick', function() {
+              infowindow.marker = null;
+              });
+              var streetViewService = new google.maps.StreetViewService();
+              var radius = 100;
+
+              // In case the status is OK, which means the pano was found, compute the
+              // position of the streetview image, then calculate the heading, then get a
+              // panorama from that and set the options
+              function getStreetView(data, status) {
+              if (status == google.maps.StreetViewStatus.OK) {
+                var nearStreetViewLocation = data.location.latLng;
+                var heading = google.maps.geometry.spherical.computeHeading(
+                nearStreetViewLocation, marker.position);
+                infowindow.setContent('<div>' + marker.title + '</div><div id="pano"></div>');
+                var panoramaOptions = {
+                  position: nearStreetViewLocation,
+                  pov: {
+                    heading: heading,
+                    pitch: 10
+                  }
+                };
+                var panorama = new google.maps.StreetViewPanorama(
+                  document.getElementById('pano'), panoramaOptions);
+                  } else {
+                    infowindow.setContent('<div>' + marker.title + '</div>' +
+                    '<div>No Street View Found</div>');
+                }
+              }
+              // Use streetview service to get the closest streetview image within
+              // 50 meters of the markers position
+              streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+              // Open the infowindow on the correct marker.
+              infowindow.open(map, marker);
+            }
           }
 
           // This function will loop through the listings and hide them all.
@@ -493,6 +489,19 @@ html
               markers[i].setMap(null);
             }
           }
+
+          //-
+          //- //- // Add an event listener so that the polygon is captrued, call the
+          //- //- // searchWithinPolygon function. This will show the markers in the polygon,
+          //- //- // and hide any outside of it.
+          //- drawingManager.addListener('overlaycomplete', function(event) {
+          //- /*First, check if there is an existing polygon.
+          //- If there is, get rid of it and remove the markers.*/
+          //-   if (polygon) {
+          //-     polygon.setMap(null);
+          //-     hideListings;
+          //-   }
+
 
         script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&libraries=places,drawing,geometry&v=3&callback=initMap')
 
