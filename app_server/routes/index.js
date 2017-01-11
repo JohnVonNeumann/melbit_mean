@@ -8,7 +8,7 @@ var ctrlUsers = require('../controllers/users');
 router.get('/', ctrlLocations.home);
 router.get('/location', ctrlLocations.locationInfo);
 router.get('/location/reviews', ctrlLocations.reviews)
-router.get('/location/reviews/new', ctrlLocations.addReview);
+router.get('/location/review/new', ctrlLocations.addReview);
 router.get('/location/directory', ctrlLocations.directory);
 router.get('/location/getListed', ctrlLocations.getListedRequest);
 
