@@ -15,7 +15,7 @@ module.exports.reviews = function(req, res) {
 
 /* GET new review page */
 module.exports.addReview = function(req, res) {
-  res.render('index', { title: 'New Review' });
+  res.render('location-review-form', { title: 'Add Review' });
 };
 
 /* GET directory page */
