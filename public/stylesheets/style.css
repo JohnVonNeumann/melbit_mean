@@ -7,8 +7,17 @@ a {
   color: #00B7FF;
 }
 
+#pano {
+  padding-top: 1em;
+}
+
 .review{padding-bottom: 5px;}
 .panel-body.review-container {padding-top: 0;}
 .review-header {margin-bottom: 10px;}
 .reviewAuthor {margin: 0 5px;}
 .reviewTimesteamp {color: #ccc;}
+/*
+.label-padding-infoWindow {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}*/
