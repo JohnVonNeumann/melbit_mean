@@ -10,7 +10,7 @@ router.get('/location', ctrlLocations.locationInfo);
 router.get('/location/reviews', ctrlLocations.reviews)
 router.get('/location/review/new', ctrlLocations.addReview);
 router.get('/location/directory', ctrlLocations.directory);
-router.get('/location/getListed', ctrlLocations.getListedRequest);
+router.get('/contact', ctrlLocations.getListedRequest);
 
 
 /* Others Pages */
