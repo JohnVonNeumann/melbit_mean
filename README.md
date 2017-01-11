@@ -1,3 +1,9 @@
-# melbit_mean
+# Melbit - A Melbourne Specific Bitcoin Directory
 
-https://boiling-reef-34014.herokuapp.com/
+#### How to format a readme >https://help.github.com/articles/basic-writing-and-formatting-syntax/
+
+## Deployment Link
+ https://boiling-reef-34014.herokuapp.com/
+
+## For info on upto date development:
+- I would recommend reading commit messages, they will provide the most indepth discussions and context for what is going on and my thought process throughout the app on decisions.
