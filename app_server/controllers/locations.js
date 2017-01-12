@@ -20,7 +20,8 @@ module.exports.addReview = function(req, res) {
 
 /* GET directory page */
 module.exports.directory = function(req, res) {
-  res.render('directory', { title: 'View All Locations'
+  res.render('directory', {
+    title: 'View All Locations',
     locations: [{
       name: 'Altius Coffee Brewers',
       address: '517 Flinders Lane, Melbourne, Victoria, 3000, Australia',

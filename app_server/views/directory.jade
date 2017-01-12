@@ -36,77 +36,27 @@ block content
             li
               a(href='#') Kyoto
 
-
-  //- Entry For Jimbos Cafe
+  //- Loop entry creation, pulls all location json data from directory
+  //- controller and builds listings
   .row
     .col-xs-12.col-sm-8.col-md-6.col-lg-6
       .row.list-group
-        .col-xs-12.list-group-item
-          h4
-            a(href="/location") Jimbo's Cafe
-            small &nbsp;
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star-empty
-            span.badge.pull-right.badge-default 100m
-          p.address 120 Spencer Street, Melbourne, 3000
-          p
-            span.label.label-warning Hot Code
-            | &nbsp;
-            span.label.label-warning French Cuisine
-            | &nbsp;
-            span.label.label-warning Premium Wifi
-            | &nbsp;
-  //- End of Coder Factory Entry
-
-  //- Entry For McDonalds
-  .row
-    .col-xs-12.col-sm-8.col-md-6.col-lg-6
-      .row.list-group
-        .col-xs-12.list-group-item
-          h4
-            a(href="/location") McDonalds
-            small &nbsp;
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star-empty
-              span.glyphicon.glyphicon-star-empty
-            span.badge.pull-right.badge-default 2.3km
-          p.address 123 Fake Street, Melbourne, 3000
-          p
-            span.label.label-warning Fast Food
-            | &nbsp;
-            span.label.label-warning Burgers
-            | &nbsp;
-            span.label.label-warning Garbage Wifi
-            | &nbsp;
-
-  //- Entry For McDonalds
-  .row
-    .col-xs-12.col-sm-8.col-md-6.col-lg-6
-      .row.list-group
-        .col-xs-12.list-group-item
-          h4
-            a(href="/location") Gina's Clothes
-            small &nbsp;
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star-empty
-              span.glyphicon.glyphicon-star-empty
-              span.glyphicon.glyphicon-star-empty
-              span.glyphicon.glyphicon-star-empty
-            span.badge.pull-right.badge-default 2.3km
-          p.address 321 Real Street, Melbourne, 3000
-          p
-            span.label.label-warning Trash Memes
-            | &nbsp;
-            span.label.label-warning Reeeeeee
-            | &nbsp;
-            span.label.label-warning Fucking Normies
-            | &nbsp;
-
+        each location in locations
+          .col-xs-12.list-group-item
+            h4
+              a(href="/location")= location.name
+              small &nbsp;
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star
+                span.glyphicon.glyphicon-star-empty
+              span.badge.pull-right.badge-default= location.distance
+            p.address= location.address
+            p
+              each facility in location.facilities
+                span.label.label-warning= facility
+                &nbsp;
 
     .col-xs-12.col-sm-4
      p.lead Melbit helps you find places to use and spread your bitcoin.
