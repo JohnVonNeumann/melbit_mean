@@ -53,7 +53,9 @@ module.exports.reviews = function(req, res) {
 
 /* GET new review page */
 module.exports.addReview = function(req, res) {
-  res.render('location-review-form', { title: 'Add Review' });
+  res.render('location-review-form', {
+    title: 'Review Jimbo\'s Cafe'
+  });
 };
 
 /* GET directory page */
