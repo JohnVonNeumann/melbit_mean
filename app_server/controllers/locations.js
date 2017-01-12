@@ -65,5 +65,5 @@ module.exports.directory = function(req, res) {
 
 /* GET get listed page */
 module.exports.getListedRequest = function(req, res) {
-  res.render('index', { title: 'Submit Form For Listing' });
+  res.render('contact', { title: 'Contact' });
 };
