@@ -22,11 +22,13 @@ module.exports.addReview = function(req, res) {
 module.exports.directory = function(req, res) {
   res.render('directory', {
     title: 'View All Locations',
+    sidebar: "Melbit helps you find places to use and spread your bitcoin.",
+    // Locations json data array that holds relevant entry data to be pulled into the directory view
     locations: [{
       name: 'Altius Coffee Brewers',
       address: '517 Flinders Lane, Melbourne, Victoria, 3000, Australia',
       rating: 5,
-      facilities: ['Cafe', 'Pastries', 'Trendy', 'Small Business'],
+      facilities: ['Cafe', 'Pastries', 'Trendy'],
       distance: '100m',
       location: {lat:-37.819659, lng:144.956444}
     },{
@@ -40,21 +42,21 @@ module.exports.directory = function(req, res) {
       name: 'Imbiss25',
       address: '25 Blessington St, Saint Kilda, Victoria, 3182, Australia',
       rating: 3,
-      facilities: ['Cafe', 'Lunch', 'Food', 'Child-Friendly'],
+      facilities: ['Cafe', 'Lunch', 'Food'],
       distance: '2.5km',
       location: {lat:-37.870698, lng:144.980169},
     },{
       name: 'Melbourne Bitcoin Technology Centre',
       address: '89/91 City Rd, Southbank, Victoria, 3006, Australia',
       rating: 2,
-      facilities: ['Co-Working Space', 'Shared Offices', 'Corporate', 'Bitcoin Services'],
+      facilities: ['Co-Working Space', 'Offices', 'Bitcoin Services'],
       distance: '1km',
       location: {lat:-37.822549, lng:144.965126}
     },{
       name: 'Jimbo\'s Cafe',
       address: '120 Spencer Street, Melbourne, Victoria, 3000, Australia',
       rating: 1,
-      facilities: ['Cafe', 'Lunch', 'Office Cafe', 'Food'],
+      facilities: ['Cafe', 'Lunch', 'Office Cafe'],
       distance: '300m',
       location: {lat:-37.818223, lng:144.954088}
     }]

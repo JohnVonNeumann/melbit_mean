@@ -1,5 +1,7 @@
 extends layout
 
+include _includes/sharedHTMLfunctions
+
 block content
   h1= title
   //- Header for holding search bar and dropdowns for location and otherwise.
@@ -46,11 +48,7 @@ block content
             h4
               a(href="/location")= location.name
               small &nbsp;
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star
-                span.glyphicon.glyphicon-star-empty
+                +outputRating(location.rating)
               span.badge.pull-right.badge-default= location.distance
             p.address= location.address
             p
@@ -59,4 +57,4 @@ block content
                 &nbsp;
 
     .col-xs-12.col-sm-4
-     p.lead Melbit helps you find places to use and spread your bitcoin.
+     p.lead= sidebar
