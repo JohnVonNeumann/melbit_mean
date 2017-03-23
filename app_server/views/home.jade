@@ -551,6 +551,8 @@ html
               }
             }
           }
+          // Declare API vars
+          var apikey = config.G_MAPS_API_KEY;
 
           // Function user to take an input from the polygon drawn by users, and then
           // zooms into that area in order to provide users with a more immersive experience
@@ -580,7 +582,7 @@ html
             }
           }
 
-        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDODnasEWZVKvKmIE9aXVTTumJinFZ6I1Y&libraries=places,drawing,geometry&v=3&callback=initMap')
+        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=' + apikey + '&libraries=places,drawing,geometry&v=3&callback=initMap')
 
       footer
         .row
@@ -588,4 +590,5 @@ html
             small &copy; Melbit 2017
 
       script(src='/javascripts/jquery-3.1.1.js')
+      script(type='text/javascript' src='config.js')
       script(src='/bootstrap/js/bootstrap.min.js')
